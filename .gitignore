@@ -8,6 +8,12 @@
 # testing
 /coverage
 
+#lock
+*.lock
+*.lockb
+
+
+
 # next.js
 /.next/
 /out/
