@@ -20,17 +20,14 @@ const handler = (_req: NextApiRequest, res: NextApiResponse) => {
 				result = result.filter((word) => word.includes(contain[letterPos]));
 			}
 
-			// result = buffer;
 		}
 
 		//NOTE - filer out word that include letter
 		if (query.filter) {
-			// let buffer: string[];
 			const filter = query.filter.split("");
 			for (const letterPos in filter) {
 				result = result.filter((word) => !word.includes(filter[letterPos]));
 			}
-			// result = buffer;
 		}
 
 		//NOTE - filter word that has match placement
@@ -48,14 +45,6 @@ const handler = (_req: NextApiRequest, res: NextApiResponse) => {
 			result = buffer;
 		}
 
-		// //NOTE - remove dupe value
-		// let uniqueChars = [];
-		// result.forEach((element) => {
-		// 	if (!uniqueChars.includes(element)) {
-		// 		uniqueChars.push(element);
-		// 	}
-		// });
-		// result = uniqueChars;
 		return result;
 	};
 
