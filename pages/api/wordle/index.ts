@@ -13,29 +13,49 @@ const handler = (_req: NextApiRequest, res: NextApiResponse) => {
 		let result = wordleWord;
 
 		//NOTE - filer word that include letter
-		if (query.filter) {
+		if (query.contain) {
 			let buffer: string[];
+			const contain = query.contain.split("");
+			for (const letterPos in contain) {
+				result = result.filter((word) => word.includes(contain[letterPos]));
+			}
+
+			// result = buffer;
+		}
+
+		//NOTE - filer out word that include letter
+		if (query.filter) {
+			// let buffer: string[];
 			const filter = query.filter.split("");
 			for (const letterPos in filter) {
-				buffer = result.filter((word) => !word.includes(filter[letterPos]));
+				result = result.filter((word) => !word.includes(filter[letterPos]));
 			}
-			result = buffer;
+			// result = buffer;
 		}
 
 		//NOTE - filter word that has match placement
 		if (query.perfect) {
 			const perfect = query.perfect.split("");
-			let buffer = result;
+			let buffer = result
 
 			for (const letterPos in perfect) {
 				if (perfect[letterPos] !== "0") {
 					buffer = buffer.filter(
-						(word) => word[letterPos] === perfect[letterPos]
-					);
+						(word) => word[letterPos] === perfect[letterPos] 
+						);
 				}
 			}
 			result = buffer;
 		}
+
+		// //NOTE - remove dupe value
+		// let uniqueChars = [];
+		// result.forEach((element) => {
+		// 	if (!uniqueChars.includes(element)) {
+		// 		uniqueChars.push(element);
+		// 	}
+		// });
+		// result = uniqueChars;
 		return result;
 	};
 

@@ -10,6 +10,7 @@ export type User = {
 }
 
 export interface WordleQuery {
-  filter?:String
-  perfect?:String
+  contain?:string
+  filter?:string
+  perfect?:string
 }
