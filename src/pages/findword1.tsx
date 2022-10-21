@@ -9,7 +9,7 @@ const main = () => {
 		filter: "",
 		perfect: "",
 	} as WordleQuery);
-	const [word, setWord] = useState<String[]>();
+	const [word, setWord] = useState<string[]>();
 	const [perfectPos, setPerfectPos] = useState({
 		perfect1: "",
 		perfect2: "",
@@ -33,7 +33,7 @@ const main = () => {
 	};
 
 	const changeLatter = () => {
-		let perfect = ["0", "0", "0", "0", "0"];
+		const perfect = ["0", "0", "0", "0", "0"];
 
 		if (perfectPos.perfect1 !== "") {
 			perfect[0] = perfectPos.perfect1;
