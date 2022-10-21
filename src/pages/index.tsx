@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment } from "react";
 
 const index = () => {
 	return (
