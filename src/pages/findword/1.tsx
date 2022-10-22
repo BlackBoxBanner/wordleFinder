@@ -1,7 +1,7 @@
-import Layout from "../components/Layout";
+import Layout from "../../components/Layout";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { WordleQuery } from "../interfaces/index";
+import { WordleQuery } from "../../interfaces/index";
 
 const main = () => {
 	const [data, setData] = useState({

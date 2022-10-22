@@ -7,6 +7,7 @@ const index = () => {
 			<section>
 				<div>
 					<Link href="./wordle">wordle finder document.</Link>
+					<Link href="./word">word bank document.</Link>
 				</div>
 			</section>
 		</Fragment>
