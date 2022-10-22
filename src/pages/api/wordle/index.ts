@@ -1,8 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import wordleWord from "../../../data/wordle-word";
+import wordle_word from "../../../data/wordle-word.json";
 import { WordleQuery } from "../../../interfaces";
 
-const handler = (_req: NextApiRequest, res: NextApiResponse) => {
+const wordleWord = (_req: NextApiRequest, res: NextApiResponse) => {
   //NOTE - API GET method perform fumction
   const apiGET = () => {
     res.status(200).json(filerQuery(_req.query));
@@ -10,7 +10,7 @@ const handler = (_req: NextApiRequest, res: NextApiResponse) => {
 
   //NOTE - Get the query from API query and filter word that include letter in query and filter word that has perfect match placement
   const filerQuery = (query: WordleQuery) => {
-    let result = wordleWord;
+    let result = wordle_word;
 
     //NOTE - filer word that include letter
     if (query.contain) {
@@ -57,4 +57,4 @@ const handler = (_req: NextApiRequest, res: NextApiResponse) => {
   }
 };
 
-export default handler;
+export default wordleWord;
